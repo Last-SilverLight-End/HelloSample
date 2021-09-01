@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { 
   Button,
   Linking,
@@ -8,10 +8,24 @@ import {
  } from 'react-native';
 
 const App = () => {
+const [name,setName] = useState('Prog');
+const [session,setSession] = useState({number:1 , title :'state'});
+const [current,setCurrent] = useState(true);
+
+  const increaseNumber = () =>{
+    setSession({number : session.number+3})
+  }
+  const onClickHandler = () =>{
+    setName('Programming with Prog');
+    setSession({number: session.number+2 , title :'Style'});
+    setCurrent(false)
+  }
   return (
     <View style = {styles.body}>
-      <Text style = {styles.text}> Programming with me ! </Text>
-      <Button title = 'hello world' onPress = {() => {Linking.openURL('https://www.naver.com') } }> </Button>
+      <Text style = {styles.text}> Programming with {name} ! </Text>
+      <Text style = {styles.text}> This is the session Number {session.number} and about {session.title} </Text>
+      <Text style = {styles.text}> {current ? 'current session' : 'next session'} </Text>
+      <Button title = 'hello world' onPress = {onClickHandler}> </Button>
     </View>
   );
 };
