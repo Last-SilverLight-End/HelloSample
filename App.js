@@ -1,16 +1,36 @@
 import React from 'react';
-import { StyleSheet,Text,View } from 'react-native';
+import { 
+  Button,
+  Linking,
+  StyleSheet,
+  Text,
+  View
+ } from 'react-native';
 
-export default function App() {
-  return(
-    <View style={styles.container}>
-      <Text> Open JS! </Text>
+const App = () => {
+  return (
+    <View style = {styles.body}>
+      <Text style = {styles.text}> Programming with me ! </Text>
+      <Button title = 'hello world' onPress = {() => {Linking.openURL('https://www.naver.com') } }> </Button>
     </View>
   );
-}
+};
 
 
 const styles = StyleSheet.create({
+  text:{
+    color : '#ffffff',
+    fontSize : 20,
+    fontStyle : 'italic',
+    margin : 10,
+  },
+  body:{
+    flex : 1,
+    backgroundColor: '#0000ff',
+    alignItems :'center',
+    justifyContent : 'center',
+
+  },
   container:{
     flex:1,
     backgroundColor: '#fff',
@@ -18,3 +38,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
